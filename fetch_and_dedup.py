@@ -1,76 +1,87 @@
-# fetch_and_dedup.py
-# Запускается вручную на RDP-машине
-# Скачивает подписки → убирает дубли → сохраняет в E:\ЕГ\принтер\keys GitHub\configs.txt
-
-import base64
-import requests
+import base64, requests, os, shutil
 from urllib.parse import urlparse, parse_qs
-import os
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime
 
-# Список подписок (можно добавлять новые)
 sub_urls = [
+    "https://raw.githubusercontent.com/whoahaow/rjsxrd/refs/heads/main/githubmirror/bypass-unsecure/bypass-unsecure-all.txt",
+    "https://raw.githubusercontent.com/vsevjik/OBSpiskov/refs/heads/main/wwh#OBSpiskov",
     "https://raw.githubusercontent.com/LowiKLive/BypassWhitelistRu/refs/heads/main/WhiteList-Bypass_Ru.txt",
-    "https://raw.githubusercontent.com/igareck/bypass-whitelist-ru/main/subscription.txt",
-    "https://raw.githubusercontent.com/zieng2/whitelist-bypass-ru/main/subscription.txt",
-    # Добавь свои подписки сюда, если нужно
+    "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/Vless-Reality-White-Lists-Rus-Mobile.txt",
+    "https://github.com/AvenCores/goida-vpn-configs/raw/refs/heads/main/githubmirror/26.txt",
+    "https://raw.githubusercontent.com/zieng2/wl/main/vless_universal.txt",
+    "https://raw.githubusercontent.com/STR97/STRUGOV/refs/heads/main/STR.BYPASS#STR.BYPASS",
+    "https://bp.wl.free.nf/confs/wl.txt",
+    "https://nowmeow.pw/8ybBd3fdCAQ6Ew5H0d66Y1hMbh63GpKUtEXQClIu/whitelist",
+    "https://rstnnl.gitverse.site/sb/dev.txt",
+    "https://raw.githubusercontent.com/EtoNeYaProject/etoneyaproject.github.io/refs/heads/main/whitelist",
+    "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/WHITE-CIDR-RU-checked.txt",
+    "https://bp.wl.free.nf/confs/merged.txt",
+    "https://bp.wl.free.nf/confs/selected.txt",
+    "https://raw.githubusercontent.com/Created-By/Telegram-Eag1e_YT/main/%40Eag1e_YT",
+    "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_T,H",
+    "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/T,H",
+    "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_Reality",
+    "https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Reality",
+    "https://peige.dpkj.qzz.io/dapei",
+    "https://raw.githubusercontent.com/ovmvo/SubShare/refs/heads/main/sub/permanent/mihomo.yaml",
+    "https://raw.githubusercontent.com/AzadNetCH/Clash/main/AzadNet_hy.txt",
+    "https://raw.githubusercontent.com/amirkma/proxykma/refs/heads/main/mix.txt",
+    "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity",
+    "https://gist.githubusercontent.com/Syavar/7b868a1682aa4a87d9ec2e9bca729f38/raw/75ff3ee7c1bb9e08c5f1d91cbc4ee2b82d25635a/gistfile1.txt",
+    "https://gist.githubusercontent.com/Syavar/3e76222fc05fde9abcb35c2f24572021/raw/e2f7ef901ae4ba5bab7bef20adef41bead7ba626/gistfile1.txt",
+    "https://raw.githubusercontent.com/Kirillo4ka/vpn-configs-for-russia/refs/heads/main/Vless-Rus-Mobile-White-List.txt",
+    "https://raw.githubusercontent.com/vlesscollector/vlesscollector/refs/heads/main/vless_configs.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt",
+    "https://github.com/Epodonios/v2ray-configs/raw/main/Splitted-By-Protocol/vless.txt",
+    "https://raw.githubusercontent.com/hamedp-71/v2go_NEW/main/All_Configs_base64_Sub.txt",
+    "https://raw.githubusercontent.com/hamedp-71/v2go_NEW/main/Splitted-By-Protocol/hy2.txt",
+    "https://raw.githubusercontent.com/ninjastrikers/v2ray-configs/main/splitted/vless.txt",
+    "https://github.com/kismetpro/NodeSuber/raw/refs/heads/main/out/All_Configs_Sub.txt",
+    "https://raw.githubusercontent.com/Sage-77/V2ray-configs/main/config.txt",
+    "https://raw.githubusercontent.com/kort0881/vpn-key-vless/refs/heads/main/vpn-files/all_posts.txt",
+    "https://raw.githubusercontent.com/SoroushImanian/BlackKnight/main/sub/vlessbase64",
+    "https://github.com/kismetpro/NodeSuber/raw/refs/heads/main/Splitted-By-Protocol/vless.txt",
+    "https://github.com/kismetpro/NodeSuber/raw/refs/heads/main/Splitted-By-Protocol/trojan.txt"
 ]
 
-# Путь на RDP-машине
-shared_folder = r"E:\ЕГ\принтер\keys GitHub"
-configs_file = os.path.join(shared_folder, "configs.txt")
+path = r"E:\ЕГ\принтер\keys GitHub"
+file, log = os.path.join(path, "configs.txt"), os.path.join(path, "log.txt")
 
-def fetch_configs_from_sub(sub_url):
+def rotate(p):
+    if os.path.exists(p):
+        b = p + ".bak"
+        if os.path.exists(b): os.remove(b)
+        os.rename(p, b)
+
+def fetch_one(u):
     try:
-        r = requests.get(sub_url, timeout=15)
+        r = requests.get(u, headers={"User-Agent":"Mozilla/5.0"}, timeout=15)
         if r.status_code == 200:
-            content = r.text.strip()
-            try:
-                decoded = base64.b64decode(content + "==").decode('utf-8', errors='ignore')
-            except:
-                decoded = content
-            lines = [line.strip() for line in decoded.splitlines() if line.strip()]
-            # Оставляем только нужные протоколы
-            return [c for c in lines if c.startswith(('vmess://', 'vless://', 'ss://', 'trojan://', 'hy2://', 'hysteria2://'))]
-        else:
-            print(f"Статус {r.status_code} для {sub_url}")
-            return []
-    except Exception as e:
-        print(f"Ошибка подписки {sub_url}: {e}")
-        return []
+            c = r.text.strip()
+            if '://' not in c[:100]:
+                try: c = base64.b64decode(c + "==" * (-len(c) % 4)).decode('utf-8', errors='ignore')
+                except: pass
+            v = [l.strip() for l in c.splitlines() if l.strip().startswith(('vless://','vmess://','ss://','trojan://','hy2://'))]
+            return {"u": u, "c": v, "n": len(v)}
+    except: pass
+    return {"u": u, "c": [], "n": 0}
 
-def get_unique_key(config):
-    """Дедупликация как в NekoBox / sing-box"""
-    try:
-        u = urlparse(config)
-        key = f"{u.scheme}://{u.hostname}:{u.port or 443}{u.path}"
-        if u.query:
-            q = parse_qs(u.query)
-            key += "?" + "&".join(f"{k}={v[0]}" for k,v in sorted(q.items()))
-        return key
-    except:
-        return config
+print("Сбор ключей...")
+with ThreadPoolExecutor(max_workers=15) as ex:
+    res = list(ex.map(fetch_one, sub_urls))
 
-def deduplicate_configs(configs):
-    seen = {}
-    for c in configs:
-        k = get_unique_key(c)
-        if k not in seen:
-            seen[k] = c
-    return list(seen.values())
+all_c = []
+lines = [f"Log {datetime.now()}"]
+for r in res:
+    all_c.extend(r['c'])
+    lines.append(f"{r['n']} | {r['u']}")
 
-# Основная часть
-all_configs = []
-for url in sub_urls:
-    print(f"Обрабатываю: {url}")
-    configs = fetch_configs_from_sub(url)
-    all_configs.extend(configs)
+# Дедупликация по адресу
+unique = list({urlparse(c).netloc + urlparse(c).path: c for c in all_c}.values())
 
-unique_configs = deduplicate_configs(all_configs)
-print(f"\nСобрано уникальных конфигов: {len(unique_configs)}")
-
-os.makedirs(shared_folder, exist_ok=True)
-with open(configs_file, "w", encoding="utf-8") as f:
-    f.write("\n".join(unique_configs))
-
-print(f"\nГотово! Файл сохранён: {configs_file}")
-print("Теперь на локальном ПК запусти test_configs.py")
+rotate(file)
+with open(file, "w", encoding="utf-8") as f: f.write("\n".join(unique))
+rotate(log)
+with open(log, "w", encoding="utf-8") as f: f.write("\n".join(lines))
+print(f"Готово. Собрано: {len(unique)}")

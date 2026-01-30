@@ -1,44 +1,40 @@
-Отчет от 30.01.2026 15:24:58
---------------------------------------------------
-[OK] | Найдено: 4360 | https://raw.githubusercontent.com/whoahaow/rjsxrd/refs/heads/main/githubmirror/bypass-unsecure/bypass-unsecure-all.txt
-[OK] | Найдено: 345 | https://raw.githubusercontent.com/vsevjik/OBSpiskov/refs/heads/main/wwh#OBSpiskov
-[OK] | Найдено: 897 | https://raw.githubusercontent.com/LowiKLive/BypassWhitelistRu/refs/heads/main/WhiteList-Bypass_Ru.txt
-[OK] | Найдено: 0 | https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/Vless-Reality-White-Lists-Rus-Mobile.txt
-[OK] | Найдено: 2964 | https://github.com/AvenCores/goida-vpn-configs/raw/refs/heads/main/githubmirror/26.txt
-[OK] | Найдено: 1571 | https://raw.githubusercontent.com/zieng2/wl/main/vless_universal.txt
-[OK] | Найдено: 4565 | https://raw.githubusercontent.com/STR97/STRUGOV/refs/heads/main/STR.BYPASS#STR.BYPASS
-[OK] | Найдено: 2687 | https://bp.wl.free.nf/confs/wl.txt
-[OK] | Найдено: 30 | https://nowmeow.pw/8ybBd3fdCAQ6Ew5H0d66Y1hMbh63GpKUtEXQClIu/whitelist
-[Error: HTTPSConnectionPool(host='rstnnl.gitverse.site', port=443): Max retries exceeded with url: /sb/dev.txt (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))] | Найдено: 0 | https://rstnnl.gitverse.site/sb/dev.txt
-[OK] | Найдено: 187 | https://raw.githubusercontent.com/EtoNeYaProject/etoneyaproject.github.io/refs/heads/main/whitelist
-[OK] | Найдено: 0 | https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/WHITE-CIDR-RU-checked.txt
-[OK] | Найдено: 6085 | https://bp.wl.free.nf/confs/merged.txt
-[OK] | Найдено: 406 | https://bp.wl.free.nf/confs/selected.txt
-[OK] | Найдено: 145 | https://raw.githubusercontent.com/55prosek-lgtm/vpn_config_for_russia/refs/heads/main/whitelist.txt
-[OK] | Найдено: 104 | https://raw.githubusercontent.com/Created-By/Telegram-Eag1e_YT/main/%40Eag1e_YT
-[OK] | Найдено: 0 | https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_T,H
-[OK] | Найдено: 0 | https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/T,H
-[OK] | Найдено: 0 | https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_Reality
-[OK] | Найдено: 0 | https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Reality
-[OK] | Найдено: 96 | https://peige.dpkj.qzz.io/dapei
-[OK] | Найдено: 0 | https://raw.githubusercontent.com/ovmvo/SubShare/refs/heads/main/sub/permanent/mihomo.yaml
-[OK] | Найдено: 62 | https://raw.githubusercontent.com/AzadNetCH/Clash/main/AzadNet_hy.txt
-[OK] | Найдено: 300 | https://raw.githubusercontent.com/amirkma/proxykma/refs/heads/main/mix.txt
-[OK] | Найдено: 199 | https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity
-[OK] | Найдено: 438 | https://gist.githubusercontent.com/Syavar/7b868a1682aa4a87d9ec2e9bca729f38/raw/75ff3ee7c1bb9e08c5f1d91cbc4ee2b82d25635a/gistfile1.txt
-[OK] | Найдено: 69 | https://gist.githubusercontent.com/Syavar/3e76222fc05fde9abcb35c2f24572021/raw/e2f7ef901ae4ba5bab7bef20adef41bead7ba626/gistfile1.txt
-[OK] | Найдено: 148 | https://raw.githubusercontent.com/Kirillo4ka/vpn-configs-for-russia/refs/heads/main/Vless-Rus-Mobile-White-List.txt
-[OK] | Найдено: 3 | https://raw.githubusercontent.com/vlesscollector/vlesscollector/refs/heads/main/vless_configs.txt
-[OK] | Найдено: 2441 | https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt
-[OK] | Найдено: 2456 | https://github.com/Epodonios/v2ray-configs/raw/main/Splitted-By-Protocol/vless.txt
-[OK] | Найдено: 3763 | https://raw.githubusercontent.com/hamedp-71/v2go_NEW/main/All_Configs_base64_Sub.txt
-[OK] | Найдено: 55 | https://raw.githubusercontent.com/hamedp-71/v2go_NEW/main/Splitted-By-Protocol/hy2.txt
-[OK] | Найдено: 2599 | https://raw.githubusercontent.com/ninjastrikers/v2ray-configs/main/splitted/vless.txt
-[OK] | Найдено: 3934 | https://github.com/kismetpro/NodeSuber/raw/refs/heads/main/out/All_Configs_Sub.txt
-[Status: 404] | Найдено: 0 | https://raw.githubusercontent.com/Sage-77/V2ray-configs/main/config.txt
-[OK] | Найдено: 1331 | https://raw.githubusercontent.com/kort0881/vpn-key-vless/refs/heads/main/vpn-files/all_posts.txt
-[OK] | Найдено: 728 | https://raw.githubusercontent.com/SoroushImanian/BlackKnight/main/sub/vlessbase64
-[OK] | Найдено: 2294 | https://github.com/kismetpro/NodeSuber/raw/refs/heads/main/Splitted-By-Protocol/vless.txt
-[OK] | Найдено: 305 | https://github.com/kismetpro/NodeSuber/raw/refs/heads/main/Splitted-By-Protocol/trojan.txt
-
-ИТОГО: Собрано всего 45567, уникальных 19890
+Log 2026-01-30 17:19:32.958480
+4594 | https://raw.githubusercontent.com/whoahaow/rjsxrd/refs/heads/main/githubmirror/bypass-unsecure/bypass-unsecure-all.txt
+0 | https://raw.githubusercontent.com/vsevjik/OBSpiskov/refs/heads/main/wwh#OBSpiskov
+897 | https://raw.githubusercontent.com/LowiKLive/BypassWhitelistRu/refs/heads/main/WhiteList-Bypass_Ru.txt
+0 | https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/Vless-Reality-White-Lists-Rus-Mobile.txt
+0 | https://github.com/AvenCores/goida-vpn-configs/raw/refs/heads/main/githubmirror/26.txt
+1611 | https://raw.githubusercontent.com/zieng2/wl/main/vless_universal.txt
+4505 | https://raw.githubusercontent.com/STR97/STRUGOV/refs/heads/main/STR.BYPASS#STR.BYPASS
+2760 | https://bp.wl.free.nf/confs/wl.txt
+30 | https://nowmeow.pw/8ybBd3fdCAQ6Ew5H0d66Y1hMbh63GpKUtEXQClIu/whitelist
+0 | https://rstnnl.gitverse.site/sb/dev.txt
+209 | https://raw.githubusercontent.com/EtoNeYaProject/etoneyaproject.github.io/refs/heads/main/whitelist
+0 | https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/WHITE-CIDR-RU-checked.txt
+0 | https://bp.wl.free.nf/confs/merged.txt
+406 | https://bp.wl.free.nf/confs/selected.txt
+104 | https://raw.githubusercontent.com/Created-By/Telegram-Eag1e_YT/main/%40Eag1e_YT
+0 | https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_T,H
+0 | https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/T,H
+0 | https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Clash_Reality
+0 | https://raw.githubusercontent.com/Mosifree/-FREE2CONFIG/refs/heads/main/Reality
+0 | https://peige.dpkj.qzz.io/dapei
+0 | https://raw.githubusercontent.com/ovmvo/SubShare/refs/heads/main/sub/permanent/mihomo.yaml
+0 | https://raw.githubusercontent.com/AzadNetCH/Clash/main/AzadNet_hy.txt
+0 | https://raw.githubusercontent.com/amirkma/proxykma/refs/heads/main/mix.txt
+0 | https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity
+0 | https://gist.githubusercontent.com/Syavar/7b868a1682aa4a87d9ec2e9bca729f38/raw/75ff3ee7c1bb9e08c5f1d91cbc4ee2b82d25635a/gistfile1.txt
+0 | https://gist.githubusercontent.com/Syavar/3e76222fc05fde9abcb35c2f24572021/raw/e2f7ef901ae4ba5bab7bef20adef41bead7ba626/gistfile1.txt
+0 | https://raw.githubusercontent.com/Kirillo4ka/vpn-configs-for-russia/refs/heads/main/Vless-Rus-Mobile-White-List.txt
+0 | https://raw.githubusercontent.com/vlesscollector/vlesscollector/refs/heads/main/vless_configs.txt
+0 | https://raw.githubusercontent.com/barry-far/V2ray-config/main/Splitted-By-Protocol/vless.txt
+0 | https://github.com/Epodonios/v2ray-configs/raw/main/Splitted-By-Protocol/vless.txt
+0 | https://raw.githubusercontent.com/hamedp-71/v2go_NEW/main/All_Configs_base64_Sub.txt
+0 | https://raw.githubusercontent.com/hamedp-71/v2go_NEW/main/Splitted-By-Protocol/hy2.txt
+0 | https://raw.githubusercontent.com/ninjastrikers/v2ray-configs/main/splitted/vless.txt
+0 | https://github.com/kismetpro/NodeSuber/raw/refs/heads/main/out/All_Configs_Sub.txt
+0 | https://raw.githubusercontent.com/Sage-77/V2ray-configs/main/config.txt
+1330 | https://raw.githubusercontent.com/kort0881/vpn-key-vless/refs/heads/main/vpn-files/all_posts.txt
+795 | https://raw.githubusercontent.com/SoroushImanian/BlackKnight/main/sub/vlessbase64
+0 | https://github.com/kismetpro/NodeSuber/raw/refs/heads/main/Splitted-By-Protocol/vless.txt
+0 | https://github.com/kismetpro/NodeSuber/raw/refs/heads/main/Splitted-By-Protocol/trojan.txt
